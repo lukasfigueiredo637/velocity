@@ -1,6 +1,6 @@
 # Velocity 🎬✨
 
-> **Create stunning motion graphics and animations using AI‑powered YAML scene descriptions**
+> **Create stunning motion graphics and animations using AI‑powered scenes**
 
 ![Demo](docs/demo.gif)
 
