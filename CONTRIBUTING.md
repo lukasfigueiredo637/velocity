@@ -5,6 +5,7 @@ Thank you for your interest in contributing to Velocity! This guide helps you ge
 ## 🌟 Ways to Contribute
 
 - 🐛 Report bugs and issues
+- 🎱 Enhancing AI usage to make more accurate scenes 
 - 💡 Propose features and improvements
 - 📝 Improve documentation and examples
 - 🎨 Create new YAML scene templates
@@ -115,23 +116,6 @@ When proposing features:
 1. Describe the use case and value
 2. Provide examples or sketches
 3. Consider scope (start small, iterate)
-4. Check alignment with docs and schema
-
-## 🎨 Contributing Examples
-
-1. Add a YAML file in `public/examples/`
-2. Use a clear filename (`descriptive-name.yaml`)
-3. Prefer focused scenes demonstrating 1–2 ideas
-4. Add comments for non‑obvious techniques
-5. Test thoroughly
-6. If needed, update example buttons in `src/App.jsx`
-
-## 🧪 Testing
-
-- Manually verify on modern browsers
-- Check performance on heavier scenes
-- Test edge cases (missing fields, invalid values)
-- Lint and fix warnings
 
 ## 📚 Documentation
 
@@ -140,26 +124,6 @@ Help by:
 - Improving clarity and flow
 - Creating tutorials and guides
 - Enhancing inline comments
-
-## 🎯 Areas Needing Help
-
-### High Priority
-- More animation presets and easings
-- Improved AI prompt interpretation
-- Additional visual effects/filters
-- Mobile responsiveness
-
-### Medium Priority
-- Automated testing
-- Audio synchronization
-- Performance optimizations
-- Interactive tutorials
-
-### Lower Priority
-- Internationalization
-- Plugin architecture
-- Cloud rendering integrations
-- Collaborative editing
 
 ## 🤔 Questions?
 
