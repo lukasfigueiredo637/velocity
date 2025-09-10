@@ -6,6 +6,8 @@
 > **Create stunning motion graphics and animations using AI‑powered scenes**
 
 ![Demo](docs/demo.gif)
+## all examples generated with ai.
+
 
 Velocity is an AI‑assisted video editor that lets you create professional motion graphics by describing your vision in natural language or structured YAML. It builds React components from YAML, animates them with an expressive timeline, and previews instantly.
 
