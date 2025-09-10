@@ -1,0 +1,330 @@
+scene:
+  id: google-search-to-website-simulation
+  name: "Google Search & Website Visit"
+  width: 1280
+  height: 720
+  fps: 60
+  background: '#F8F9FA' # Light background for Google search page
+  duration: 10 # Explicit duration to ensure all animations fit
+  timeline:
+    events:
+      - {id: searchPageLoad}
+      - {id: googleLogoIn, after: searchPageLoad, delay: 1}
+      - {id: searchBarIn, after: googleLogoIn, delay: 0.4}
+      - {id: searchButtonsIn, after: searchBarIn, delay: 0.3}
+      - {id: searchResultsShow, after: searchButtonsIn, delay: 0.5}
+      - {id: transitionStart, after: searchResultsShow, delay: 2} # Time to view results
+      - {id: websiteFrameIn, after: transitionStart, delay: 1}
+      - {id: websiteContentLoad, after: websiteFrameIn, delay: 1}
+
+  camera:
+    initial: {x: 0, y: 0, z: 0, scale: 1, rotation: 0}
+    animations:
+      - on: transitionStart
+        steps:
+          - type: anime
+            duration: 1.0
+            props:
+              y: {to: -20}
+              scale: {to: 1.05}
+              ease: inOutQuad
+      - on: websiteContentLoad
+        steps:
+          - type: anime
+            delay: 1.0
+            duration: 1.0
+            props:
+              y: {to: 0}
+              scale: {to: 1}
+              ease: inOutQuad
+
+  elements:
+    # --- Google Search Page ---
+    - type: group
+      id: google-page
+      abs: true
+      full: true
+      flexCol: true
+      centerItems: true
+      gap: 24
+      padding: [64]
+      animations:
+        - on: transitionStart
+          steps:
+            - type: anime
+              duration: 0.6
+              props:
+                opacity: {to: 0}
+                scale: {to: 0.9}
+                ease: outQuad
+
+      children:
+        - type: image
+          id: google-logo
+          src: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'
+          w: 160
+          h: 54
+          opacity: 0 # Initial state matches from in animation
+          y: -20     # Initial state matches from in animation
+          animations:
+            - on: googleLogoIn
+              steps:
+                - type: anime
+                  duration: 0.6
+                  props:
+                    opacity: {from: 0, to: 1}
+                    y: {from: -20, to: 0}
+                    ease: outCubic
+
+        - type: group # Search bar container
+          id: search-bar-container
+          row: true
+          alignCenter: true
+          w: 580
+          h: 48
+          bg: '#FFFFFF'
+          radius: 24
+          shadow: {x: 0, y: 1, blur: 6, spread: 0, color: 'rgba(0,0,0,0.1)'}
+          padding: [0, 16]
+          opacity: 0 # Initial state matches from in animation
+          scale: 0.8 # Initial state matches from in animation
+          animations:
+            - on: searchBarIn
+              steps:
+                - type: anime
+                  duration: 0.8
+                  props:
+                    opacity: {from: 0, to: 1}
+                    scale: {from: 0.8, to: 1}
+                    ease: outBack
+          children:
+            - type: text
+              txt: 'AI Video Editor'
+              fs: 18
+              color: '#3C4043'
+
+        - type: group # Search buttons
+          id: search-buttons
+          row: true
+          gap: 12
+          opacity: 0 # Initial state matches from in animation
+          y: 10
+          animations:
+            - on: searchButtonsIn
+              steps:
+                - type: anime
+                  duration: 0.4
+                  props:
+                    opacity: {from: 0, to: 1}
+                    y: {from: 10, to: 0} # Subtle slide in
+                    ease: outQuad
+          children:
+            - type: rect
+              w: 120
+              h: 36
+              bg: '#F2F2F2'
+              radius: 4
+              centerItems: true
+              children:
+                - type: text
+                  txt: 'Google Search'
+                  fs: 14
+                  color: '#3C4043'
+            - type: rect
+              w: 120
+              h: 36
+              bg: '#F2F2F2'
+              radius: 4
+              centerItems: true
+              children:
+                - type: text
+                  txt: "I'm Feeling Lucky"
+                  fs: 14
+                  color: '#3C4043'
+
+        - type: group # Search results container
+          id: search-results-container
+          flexCol: true
+          gap: 16
+          w: 600
+          animations:
+            - on: searchResultsShow
+              steps:
+                - type: anime
+                  duration: 0.8
+                  props:
+                    targets: children
+                    y: {from: 16, to: 0}
+                    opacity: {from: 0, to: 1}
+                    stagger: {each: 120} # Stagger each result entry
+                    ease: outQuad
+          children:
+            - type: group # Result 1
+              id: result-1
+              flexCol: true
+              gap: 4
+              opacity: 0 # Initial state for stagger
+              y: 16      # Initial state for stagger
+              children:
+                - type: text
+                  txt: 'AI Video Editor - Unleash Your Creativity'
+                  fs: 20
+                  color: '#1A0dab'
+                  fw: bold
+                - type: text
+                  txt: 'https://aivideoeditor.com'
+                  fs: 14
+                  color: '#006621'
+                - type: text
+                  txt: 'Generate stunning videos with AI. Powerful tools for rapid video creation and editing for all skill levels.'
+                  fs: 14
+                  color: '#545454'
+            - type: group # Result 2
+              id: result-2
+              flexCol: true
+              gap: 4
+              opacity: 0 # Initial state for stagger
+              y: 16      # Initial state for stagger
+              children:
+                - type: text
+                  txt: 'The Best AI Video Editor Software for 2024'
+                  fs: 20
+                  color: '#1A0dab'
+                  fw: bold
+                - type: text
+                  txt: 'https://techreview.com/ai-video-editors'
+                  fs: 14
+                  color: '#006621'
+                - type: text
+                  txt: 'Compare top AI video editing platforms. See reviews and features, including our pick for ease of use and powerful AI.'
+                  fs: 14
+                  color: '#545454'
+            - type: group # Result 3
+              id: result-3
+              flexCol: true
+              gap: 4
+              opacity: 0 # Initial state for stagger
+              y: 16      # Initial state for stagger
+              children:
+                - type: text
+                  txt: 'How to use AI to make videos faster - A Step-by-Step Guide'
+                  fs: 20
+                  color: '#1A0dab'
+                  fw: bold
+                - type: text
+                  txt: 'https://blog.aivideotools.com/guide'
+                  fs: 14
+                  color: '#006621'
+                - type: text
+                  txt: 'Learn the basics of AI video creation. From script to final cut, automate your workflow and save time.'
+                  fs: 14
+                  color: '#545454'
+
+    # --- Website Frame ---
+    - type: group
+      id: website-frame
+      abs: true
+      center: true
+      w: 900
+      h: 560
+      bg: '#FFFFFF'
+      radius: 8
+      shadow: {x: 0, y: 8, blur: 24, spread: 0, color: 'rgba(0,0,0,0.3)'}
+      opacity: 0 # Starts invisible
+      scale: 0.9 # Starts slightly smaller
+      animations:
+        - on: websiteFrameIn
+          steps:
+            - type: anime
+              duration: 0.8
+              props:
+                opacity: {from: 0, to: 1}
+                scale: {from: 0.9, to: 1}
+                ease: outBack
+      children:
+        - type: group # URL bar
+          id: url-bar
+          row: true
+          alignCenter: true
+          w: '100%'
+          h: 40
+          bg: '#F1F3F4'
+          padding: [0, 16]
+          children:
+            - type: text
+              txt: 'https://aivideoeditor.com'
+              fs: 14
+              color: '#5F6368'
+
+        - type: group # Website content area
+          id: website-content
+          flexCol: true
+          full: true # Fills remaining space in parent
+          gap: 16
+          padding: [24, 32]
+          animations:
+            - on: websiteContentLoad
+              steps:
+                - type: anime
+                  duration: 0.7
+                  props:
+                    targets: children
+                    y: {from: 10, to: 0}
+                    opacity: {from: 0, to: 1}
+                    stagger: {each: 120}
+                    ease: outQuad
+          children:
+            - type: text
+              txt: 'AI Video Editor: Transform Ideas into Engaging Videos'
+              fs: 28
+              fw: bold
+              color: '#202124'
+              opacity: 0 # Initial state for stagger
+              y: 10      # Initial state for stagger
+            - type: text
+              txt: 'Our platform empowers creators to produce high-quality videos with minimal effort. Leverage AI-driven tools to automate editing, add dynamic effects, and enhance your storytelling. Get started today and see your vision come to life!'
+              fs: 16
+              color: '#3C4043'
+              opacity: 0 # Initial state for stagger
+              y: 10      # Initial state for stagger
+            - type: group # Image placeholders
+              id: website-images
+              row: true
+              gap: 16
+              opacity: 0 # Initial state for stagger
+              y: 10      # Initial state for stagger
+              children:
+                - type: rect
+                  w: 200
+                  h: 120
+                  bg: '#E8EAED'
+                  radius: 4
+                - type: rect
+                  w: 200
+                  h: 120
+                  bg: '#E8EAED'
+                  radius: 4
+                - type: rect
+                  w: 200
+                  h: 120
+                  bg: '#E8EAED'
+                  radius: 4
+            - type: text
+              txt: 'Ready to create? Join thousands of creators using AI to make videos that stand out. Explore our features, tutorials, and community.'
+              fs: 16
+              color: '#3C4043'
+              opacity: 0 # Initial state for stagger
+              y: 10      # Initial state for stagger
+            - type: rect # CTA Button
+              w: 180
+              h: 48
+              bg: '#1A73E8' # Google Blue
+              radius: 6
+              centerItems: true
+              opacity: 0 # Initial state for stagger
+              y: 10      # Initial state for stagger
+              children:
+                - type: text
+                  txt: 'Start Free Trial'
+                  fs: 18
+                  color: '#FFFFFF'

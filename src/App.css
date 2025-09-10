@@ -1,0 +1,15 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+*::-webkit-scrollbar {
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgb(23, 23, 23);
+  border-radius: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}

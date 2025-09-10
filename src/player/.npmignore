@@ -1,0 +1,12 @@
+dist/test/**
+src
+.eslintrc
+tsconfig.tsbuildinfo
+.prettierrc
+*.tgz
+.turbo
+dist/tsconfig.tsbuildinfo
+tsconfig.json
+ensure-correct-version.ts
+.prettierrc.js
+happydom.ts

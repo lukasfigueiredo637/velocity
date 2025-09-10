@@ -1,0 +1,306 @@
+scene:
+  name: "Bank Hacking Simulation"
+  width: 1280
+  height: 720
+  fps: 60
+  background: "#0a0a0a"
+  perspective: 800
+  camera:
+    initial: {x: 0, y: 0, scale: 1, rotation: 0}
+    animations:
+      - steps:
+          - type: anime
+            duration: 8
+            props:
+              ease: inOutQuad
+              scale: {from: 1, to: 1.01}
+  elements:
+     # Main container
+     - type: group
+       full: true
+       flexCol: true
+       gap: 0
+       children:
+         # Top terminal header
+         - type: group
+           fullWidth: true
+           h: 80
+           row: true
+           bg: "#1a1a1a"
+           padding: [16, 24]
+           alignCenter: true
+           spaceBetween: true
+           children:
+             - type: group
+               row: true
+               gap: 12
+               alignCenter: true
+               children:
+                 - {type: circle, w: 12, h: 12, bg: "#ff5f56"}
+                 - {type: circle, w: 12, h: 12, bg: "#ffbd2e"}
+                 - {type: circle, w: 12, h: 12, bg: "#27ca3f"}
+                 - {type: text, txt: "SecureBank Terminal v2.1", fs: 14, color: "#888", ff: "monospace"}
+             - type: group
+               row: true
+               gap: 16
+               alignCenter: true
+               children:
+                 - {type: text, txt: "192.168.1.100", fs: 12, color: "#0f0", ff: "monospace"}
+                 - {type: text, txt: "SECURE", fs: 12, color: "#f80", ff: "monospace"}
+
+         # Main content area
+         - type: group
+           fullWidth: true
+           h: 640
+           row: true
+           animations:
+             - steps:
+                 - type: anime
+                   duration: 2
+                   props:
+                     targets: children
+                     y: {from: 0, to: -5}
+                 
+           children:
+             # Left terminal panel
+             - type: group
+               w: 760
+               fullHeight: true
+               bg: "#111"
+               padding: [24]
+               flexCol: true
+               gap: 16
+               children:
+                 # Terminal prompt
+                 - type: text
+                   txt: "root@hackbox:~$ ./bank_penetrator.sh"
+                   fs: 14
+                   color: "#0f0"
+                   ff: "monospace"
+                   fadeIn: {duration: 0.6}
+
+                 # Progress indicators
+                 - type: group
+                   fullWidth: true
+                   flexCol: true
+                   gap: 8
+                   animations:
+                     - steps:
+                         - type: anime
+                           duration: 0.4
+                           props:
+                             targets: children
+                             x: {from: -20, to: 0}
+                             opacity: {from: 0, to: 1}
+                             stagger: {each: 150}
+                   children:
+                     - {type: text, txt: "[+] Scanning network ports...", fs: 12, opacity: 0, color: "#0f0", ff: "monospace"}
+                     - {type: text, txt: "[+] Found open ports: 22, 80, 443, 8080", fs: 12, opacity: 0, color: "#0f0", ff: "monospace"}
+                     - {type: text, txt: "[!] Attempting SSH brute force...", fs: 12,  opacity: 0,color: "#f80", ff: "monospace"}
+                     - {type: text, txt: "[+] Login successful: admin/password123", fs: 12, opacity: 0, color: "#0f0", ff: "monospace"}
+                     - {type: text, txt: "[+] Escalating privileges...", fs: 12, opacity: 0, color: "#0f0", ff: "monospace"}
+                     - {type: text, txt: "[+] Root access granted", fs: 12, opacity: 0, color: "#0f0", ff: "monospace"}
+                     - {type: text, txt: "[!] Accessing database...", fs: 12, opacity: 0, color: "#f80", ff: "monospace"}
+
+                 # Code block
+                 - type: group
+                   fullWidth: true
+                   h: 200
+                   bg: "#1a1a1a"
+                   padding: [16]
+                   flexCol: true
+                   gap: 4
+                   slideUp: {distance: 30, duration: 0.6}
+                   children:
+                     - {type: text, txt: "SELECT * FROM accounts WHERE balance > 100000;", fs: 11, color: "#ff6b9d", ff: "monospace"}
+                     - {type: text, txt: "UPDATE transactions SET status = 'PENDING';", fs: 11, color: "#ff6b9d", ff: "monospace"}
+                     - {type: text, txt: "INSERT INTO logs VALUES (NULL, 'SYSTEM_MAINTENANCE');", fs: 11, color: "#ff6b9d", ff: "monospace"}
+                     - type: text
+                       txt: "// Bypassing security protocols..."
+                       fs: 11
+                       color: "#666"
+                       ff: "monospace"
+                       style: {opacity: 0.7}
+
+                 # Status bar
+                 - type: group
+                   fullWidth: true
+                   h: 40
+                   bg: "#222"
+                   padding: [8, 16]
+                   row: true
+                   alignCenter: true
+                   spaceBetween: true
+                   scaleIn: {scale: 0.95, duration: 0.4}
+                   children:
+                     - {type: text, txt: "Transfer in progress...", fs: 12, color: "#0f0", ff: "monospace"}
+                     - {type: text, txt: "89.3% complete", fs: 12, color: "#0f0", ff: "monospace"}
+
+             # Right panel - data visualization
+             - type: group
+               w: 520
+               fullHeight: true
+               bg: "#0d1117"
+               padding: [24]
+               flexCol: true
+               gap: 20
+               children:
+                 # Title
+                 - type: text
+                   txt: "SYSTEM INTRUSION"
+                   fs: 18
+                   fw: "bold"
+                   color: "#f85149"
+                   fadeIn: {duration: 0.8}
+
+                 # Data cards
+                 - type: group
+                   fullWidth: true
+                   flexCol: true
+                   gap: 16
+                   animations:
+                     - steps:
+                         - type: anime
+                           duration: 0.5
+                           props:
+                             targets: children
+                             y: {from: 20, to: 0}
+                             opacity: {from: 0, to: 1}
+                             stagger: {each: 100}
+                   children:
+                     # Account info
+                     - type: group
+                       fullWidth: true
+                       bg: "#161b22"
+                       padding: [16]
+                       flexCol: true
+                       gap: 8
+                       children:
+                         - {type: text, txt: "TARGET ACCOUNTS", fs: 12, color: "#7c3aed", fw: "bold"}
+                         - {type: text, txt: "47,392 records accessed", fs: 14, color: "#fff"}
+                         - {type: text, txt: "$2,847,203.19 total value", fs: 12, color: "#0f0"}
+
+                     # Progress bars
+                     - type: group
+                       fullWidth: true
+                       h: 120
+                       bg: "#161b22"
+                       padding: [16]
+                       flexCol: true
+                       gap: 12
+                       children:
+                         - {type: text, txt: "DATA EXTRACTION", fs: 12, color: "#7c3aed", fw: "bold"}
+                         - type: group
+                           fullWidth: true
+                           flexCol: true
+                           gap: 8
+                           children:
+                             # Progress bar 1
+                             - type: group
+                               fullWidth: true
+                               h: 20
+                               bg: "#21262d"
+                               children:
+                                 - type: rect
+                                   w: 380
+                                   h: 20
+                                   bg: "#238636"
+                                   animations:
+                                     - steps:
+                                         - type: anime
+                                           props:
+                                             width: [{from: 0, to: 380, duration: 3000, ease: outCubic}]
+                             - {type: text, txt: "Customer Data: 89.2%", fs: 11, color: "#aaa"}
+
+                     # Warning messages
+                     - type: group
+                       fullWidth: true
+           
+                       bg: "#21262d"
+                       padding: [16]
+                       flexCol: true
+                       gap: 8
+                       children:
+                         - {type: text, txt: "SECURITY ALERTS", fs: 12, color: "#f85149", fw: "bold"}
+                         - {type: text, txt: "⚠ Firewall bypassed", fs: 11, color: "#f80"}
+                         - {type: text, txt: "⚠ Encryption cracked", fs: 11, color: "#f80"}
+                         - {type: text, txt: "⚠ Admin privileges obtained", fs: 11, color: "#f80"}
+
+         # Bottom status bar
+         - type: group
+           fullWidth: true
+           h: 32
+           bg: "#f85149"
+           row: true
+           padding: [8, 24]
+           alignCenter: true
+           spaceBetween: true
+           slideUp: {distance: 32, duration: 0.8}
+           children:
+             - type: text
+               txt: "⚠ SECURITY BREACH DETECTED"
+               fs: 12
+               color: "#fff"
+               fw: "bold"
+               animations:
+                 - steps:
+                     - type: anime
+                       props:
+                         targets: text.chars
+                         opacity: {from: 0, to: 1}
+                         y: [{from: 6, to: 0, duration: 300, ease: outQuad}]
+                         stagger: {each: 35}
+             - type: text
+               txt: "SYSTEM COMPROMISED"
+               fs: 12
+               color: "#fff"
+               fw: "bold"
+               animations:
+                 - steps:
+                     - type: anime
+                       props:
+                         targets: text.chars
+                         opacity: {from: 0, to: 1}
+                         y: [{from: 6, to: 0, duration: 300, ease: outQuad}]
+                         stagger: {each: 35}
+
+     # Matrix-style overlay effectstested 
+     - type: group
+       abs: true
+       fullWidth: true
+       fullHeight: true
+       children:
+         # Floating code snippets
+         - type: text
+           txt: "0x4f8a2b1c"
+           abs: true
+           x: 200
+           y: 150
+           fs: 10
+           color: "#0f0"
+           ff: "monospace"
+           style: {opacity: 0.3}
+           animations:
+             - steps:
+                 - type: anime
+                   props:
+                     targets: text.chars
+                     opacity: {from: 0, to: 0.3}
+                     stagger: {each: 40}
+
+         - type: text
+           txt: "#!/bin/bash"
+           abs: true
+           x: 900
+           y: 100
+           fs: 9
+           color: "#0f0"
+           ff: "monospace"
+           style: {opacity: 0.2}
+           animations:
+             - steps:
+                 - type: anime
+                   props:
+                     duration: 8000
+                     y: [{from: 100, to: 650, duration: 8000, ease: inOutSine}]
+                     opacity: {from: 0.2, to: 0}
