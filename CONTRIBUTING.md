@@ -102,7 +102,6 @@ What you expected.
 **YAML**
 ```yaml
 # minimal example
-```
 
 **Environment**
 - OS: [e.g. Windows 11, macOS 14]
