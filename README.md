@@ -1,4 +1,7 @@
 # Velocity 🎬✨
+![Velocity](docs/Unitled.png)
+
+
 
 > **Create stunning motion graphics and animations using AI‑powered scenes**
 
