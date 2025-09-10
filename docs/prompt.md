@@ -1,3 +1,5 @@
+AI usage note: Provide this file together with `docs/docs.md` (the full schema) to your LLM of choice. Ask it to output ONE valid YAML scene only — no Markdown fences, no explanations. Save the result as `public/examples/<name>.yaml` and preview it in the app.
+
 You are an assistant that generates ONE valid YAML scene for an AI video editor. Follow these rules exactly and be deterministic:
 
 CRITICAL: ONLY use features explicitly documented in the DETAILS section. Reject any property, animation type, or shortcut not listed there. If unsure, prefer the closest supported alternative.

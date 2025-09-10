@@ -44,6 +44,29 @@ Open the app; the parser will build a React component for the scene and infer th
 
 ---
 
+### Authoring with AI (LLM workflow)
+
+Velocity supports an “AI authoring” flow where a large language model (LLM) produces a valid YAML scene for you. The model should be guided by the strict schema in this document and the prompt guide in `docs/prompt.md`.
+
+- Provide the model with BOTH files:
+  - `docs/docs.md` (this file) — the authoritative schema and rules
+  - `docs/prompt.md` — a compact instruction set that forces a single valid YAML scene output
+- Ask the model to: “Generate ONE valid YAML scene following the schema. Do not include Markdown fences. Only output YAML.”
+- Save the returned YAML to `public/examples/<name>.yaml`.
+- Preview it by updating the fetch path in `src/App.jsx` or using the Examples buttons.
+
+Authoring tips for AI prompts:
+- Describe the scene at a high level (layout, sections) first, then list concrete elements and sizes.
+- Prefer layout containers and `gap`/`padding` over manual `x/y`. Use `abs` only for overlays/badges.
+- Keep durations tight (0.4–0.8s), use gentle easings (`outCubic`, `inOutQuad`), and stagger lists 60–150ms.
+- Align initial props with the first keyframe `from` values to avoid popping.
+
+Notes and limitations:
+- The AI may misinterpret complex or ambiguous requests. Iterate by simplifying instructions and specifying numeric sizes.
+- Only keys and step types documented here are supported. If you see unknown keys in the output, remove or replace them with supported alternatives.
+
+---
+
 ### Top-level structure
 
 - `scene`: A single scene definition.

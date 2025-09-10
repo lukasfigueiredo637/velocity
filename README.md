@@ -39,7 +39,25 @@ npm run dev
 
 Visit `http://localhost:5173` to see the editor in action.
 
-## 📖 Usage
+## 🤖 Using Velocity with AI
+
+Velocity pairs well with an LLM (ChatGPT, Claude, etc.) to author scenes:
+
+1) Share these two documents with the model:
+   - `docs/docs.md` — complete schema and rules
+   - `docs/prompt.md` — strict instructions forcing a single valid YAML scene
+2) Ask the model: “Generate ONE valid YAML scene. No Markdown fences. Output YAML only.”
+3) Save the output to `public/examples/<name>.yaml`.
+4) In `src/App.jsx`, update the fetch path or click an Example button to preview.
+
+Tips for high‑quality AI outputs:
+- Be concrete: specify sizes, gaps, paddings, and durations using whole numbers
+- Prefer layout containers and `gap`/`padding` over `x/y` positioning
+- Keep animations tight (0.4–0.8s) with gentle easings and small stagger
+- Ask it to align initial props with `from` values to avoid jumping
+- If the model invents unknown keys, remove them or replace with supported ones (see `docs/docs.md`)
+
+## 📖 Manual Usage
 
 ### Basic Example
 
@@ -94,12 +112,12 @@ Load any example from the UI or browse `public/examples`.
 ```
 velocity/
 ├── src/
-│ ├── parser/ # YAML → React component builder
-│ ├── player/ # Player wrapper and controls
-│ └── components/ # UI components
+│ ├── parser/          # YAML → React component builder
+│ ├── player/          # Player wrapper and controls
+│ └── components/      # UI components
 ├── public/
-│ └── examples/ # Example scenes
-├── docs/ # Docs, prompt guide, demo assets
+│ └── examples/        # Example scenes
+├── docs/              # Docs, prompt guide, demo assets
 ```
 
 ## 🎨 Creating Your First Scene
