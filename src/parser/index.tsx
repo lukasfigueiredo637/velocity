@@ -1,7 +1,8 @@
 import React, {CSSProperties, useMemo} from 'react'
 import {interpolate, useCurrentFrame, Easing} from 'remotion'
 import YAML from 'yaml'
-import {createTimeline, stagger as animeStagger} from 'animejs'
+import anime from 'animejs'
+const {timeline: createTimeline, stagger: animeStagger} = anime
 // Types describing the YAML schema
 
 type PercentString = `${number}%`
